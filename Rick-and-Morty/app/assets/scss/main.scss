@@ -1,0 +1,19 @@
+@use './colors.scss' as *;
+@use 'sass:color';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+
+.button-login {
+  background-color: $color-secondary;
+}
+
+.button-login:hover {
+  background-color: color.adjust($color-secondary, $lightness: -10%);
+}
