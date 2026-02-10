@@ -47,7 +47,7 @@
 
           <div class="mt-5">
             <button
-              :disabled="!isFormValid"
+              :disabled="!isFormValid || loadingRef?.isLoading.value"
               class="py-2 px-4 button-login text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg disabled:opacity-50"
               type="submit"
             >
@@ -57,6 +57,7 @@
         </form>
       </div>
     </div>
+    <Loading ref="loadingRef" />
   </div>
 </template>
 
@@ -64,11 +65,12 @@
 import { useLoginForm } from "~/composables/useLoginForm";
 
 const { email, password, isFormValid } = useLoginForm();
-
+const loadingRef = ref();
 const emit = defineEmits(["login"]);
 
-const handleSubmit = () => {
-  if (isFormValid.value) {
+const handleSubmit = async () => {
+  if (isFormValid.value && loadingRef.value) {
+    await loadingRef.value.startLoading();
     emit("login", { email: email.value, password: password.value });
   }
 };

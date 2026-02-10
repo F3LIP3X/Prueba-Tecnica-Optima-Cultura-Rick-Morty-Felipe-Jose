@@ -5,8 +5,6 @@
 </template>
 
 <script setup lang="ts">
-
-//Composables
 import { isLoginValid } from "~/composables/useLoginForm";
 
 const handleLogin = (credentials: { email: string; password: string }) => {
@@ -22,6 +20,4 @@ const handleLogin = (credentials: { email: string; password: string }) => {
 
   return navigateTo("/dashboard");
 };
-
-
 </script>
