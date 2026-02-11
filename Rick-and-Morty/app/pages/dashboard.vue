@@ -49,7 +49,7 @@ definePageMeta({
 });
 
 //API
-const { characters, loading, fetchCharacters } = useCharacters();
+const { characters, fetchCharacters } = useCharacters();
 const currentPage = ref(1);
 const info = ref<any>(null);
 const searchQuery = ref("");

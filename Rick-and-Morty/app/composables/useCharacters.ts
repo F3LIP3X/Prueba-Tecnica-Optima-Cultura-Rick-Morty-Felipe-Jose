@@ -17,10 +17,8 @@ export interface CharactersResponse {
 
 export const useCharacters = () => {
   const characters = ref<Character[]>([]);
-  const loading = ref(false);
 
   const fetchCharacters = async (page: number = 1, name?: string) => {
-    loading.value = true;
 
     try {
       const params = new URLSearchParams();
@@ -36,18 +34,15 @@ export const useCharacters = () => {
 
       characters.value = response.results;
       return response;
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.error(error);
       characters.value = [];
       return null;
-    } finally {
-      loading.value = false;
     }
   };
 
   return {
     characters,
-    loading,
     fetchCharacters
   };
 };
