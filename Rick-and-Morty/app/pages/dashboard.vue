@@ -14,7 +14,7 @@
     </div>
 
     <div
-      v-if="info && !loading"
+      v-if="info"
       class="flex justify-center items-center gap-4 pb-8"
     >
       <button
