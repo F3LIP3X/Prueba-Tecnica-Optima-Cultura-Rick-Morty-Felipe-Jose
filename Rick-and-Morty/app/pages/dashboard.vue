@@ -1,12 +1,10 @@
 <template>
   <div class="w-full min-h-screen">
     <Header />
-    <div v-if="loading" class="flex justify-center items-center min-h-[400px]">
-      <p class="text-gray-600">Cargando personajes...</p>
-    </div>
+    <SearchBar @search="handleSearch" />
     <div
-      v-else
       class="p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+      
     >
       <Card
         v-for="character in characters"
@@ -43,28 +41,39 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from "vue";
 import { useCharacters } from "~/composables/useCharacters";
 
 definePageMeta({
   middleware: "auth",
 });
 
+//API
 const { characters, loading, fetchCharacters } = useCharacters();
 const currentPage = ref(1);
 const info = ref<any>(null);
+const searchQuery = ref("");
 
 const loadCharacters = async () => {
-  const response = await fetchCharacters(currentPage.value);
+  const response = await fetchCharacters(currentPage.value, searchQuery.value);
 
   if (response) {
     info.value = response.info;
+  } else {
+    info.value = null;
   }
 };
 
+const handleSearch = (query: string) => {
+  searchQuery.value = query;
+  currentPage.value = 1;
+  loadCharacters();
+};
+
+//Pagination
 const goToPage = (page: number) => {
   currentPage.value = page;
   loadCharacters();
-  window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
 onMounted(() => {

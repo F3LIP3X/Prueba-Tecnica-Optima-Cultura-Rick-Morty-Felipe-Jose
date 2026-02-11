@@ -14,7 +14,7 @@
           class="absolute inset-0 border-4 border-primary border-t-transparent rounded-full animate-spin"
         ></div>
       </div>
-      <p class="text-gray-700 font-bold animate-pulse">Loading...</p>
+      <p class="text-gray-700 font-bold">Loading...</p>
     </div>
   </div>
 </template>
