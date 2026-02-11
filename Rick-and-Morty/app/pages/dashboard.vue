@@ -3,14 +3,21 @@
     <Header />
     <SearchBar @search="handleSearch" />
     <div
+      v-if="characters.length"
       class="p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-      
     >
       <Card
         v-for="character in characters"
         :key="character.id"
         :character="character"
       />
+    </div>
+
+    <div v-else class="p-8">
+      <div class="rounded-xl border border-dashed border-gray-300 bg-gray-50 p-8 text-center text-gray-600">
+        <p class="text-lg font-medium">No se encontraron personajes</p>
+        <p class="text-sm mt-2">Intenta con otro nombre de búsqueda</p>
+      </div>
     </div>
 
     <div

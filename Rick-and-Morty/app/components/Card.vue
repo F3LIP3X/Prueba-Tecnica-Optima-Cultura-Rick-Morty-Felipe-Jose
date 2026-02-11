@@ -29,9 +29,15 @@
 
       <div class="mt-4 flex gap-2 justify-end">
         <button
-          class="rounded-lg border border-gray-200 px-3 py-2 text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-300"
+          class="rounded-lg border px-3 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-1 transition-colors"
+          :class="
+            isFavorite
+              ? 'border-red-200 bg-red-50 text-red-700 hover:bg-red-100 focus:ring-red-200'
+              : 'border-gray-200 bg-white text-gray-700 hover:bg-gray-50 focus:ring-gray-300'
+          "
+          @click="toggleFavorite"
         >
-          ❤️Like
+          {{ isFavorite ? "Quitar favorito" : "Agregar a favoritos" }}
         </button>
       </div>
     </div>
@@ -40,8 +46,17 @@
 
 <script setup lang="ts">
 import type { Character } from "~/composables/useCharacters";
+import { useFavoritesStore } from "~/stores/favorites";
+
+const favoritesStore = useFavoritesStore();
 
 const props = defineProps<{
   character: Character;
 }>();
+
+const isFavorite = computed(() => favoritesStore.isFavorite(props.character.id));
+
+const toggleFavorite = () => {
+  favoritesStore.toggleFavorite(props.character);
+};
 </script>

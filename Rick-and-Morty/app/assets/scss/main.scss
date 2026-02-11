@@ -18,3 +18,27 @@ body {
   background-color: color.adjust($color-secondary, $lightness: -10%);
 }
 
+.header-rm {
+  background-color: $color-terciary;
+}
+
+.color-tabs {
+  background-color: $color-terciary;
+}
+
+.line-tabs {
+  color: $color-primary;
+  border-bottom: 2px solid $color-primary;
+
+  &:hover {
+    color: color.adjust($color-primary, $lightness: -10%);
+  }
+}
+
+.tabs-inactive {
+  color: #ffffff;
+
+  &:hover {
+    color: $color-primary;
+  }
+}

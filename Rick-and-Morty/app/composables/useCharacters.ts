@@ -31,7 +31,7 @@ export const useCharacters = () => {
       const response = await $fetch<CharactersResponse>(
         `https://rickandmortyapi.com/api/character?${params.toString()}`
       );
-
+      
       characters.value = response.results;
       return response;
     } catch (error) {
