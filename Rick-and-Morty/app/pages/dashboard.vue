@@ -54,6 +54,7 @@
         Siguiente
       </button>
     </div>
+    <Footer />
   </div>
 </template>
 
