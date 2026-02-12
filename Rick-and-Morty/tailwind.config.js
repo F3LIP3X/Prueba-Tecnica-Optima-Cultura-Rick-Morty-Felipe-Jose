@@ -5,19 +5,13 @@ export default {
     "./components/**/*.{js,vue,ts}",
     "./layouts/**/*.vue",
     "./pages/**/*.vue",
-    "./plugins/**/*.{js,ts}",
     "./app.vue",
-    "./error.vue",
   ],
   theme: {
     extend: {
       colors: {
-        primary: {
-          DEFAULT: '#bfde42',
-          dark: '#a6c435',
-        }
+        primary: '#bfde42',
       },
     },
   },
-  plugins: [],
 }

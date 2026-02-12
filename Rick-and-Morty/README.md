@@ -1,75 +1,73 @@
-# Nuxt Minimal Starter
-
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+# Prueba Técnica: Frontend Developer (Vue.js + Nuxt + Pinia) Felipe Jose Toledano Escudero
 
 ## Setup
 
-Make sure to install dependencies:
+Requisitos:
+
+- Node 18 o superior.
+
+Instalar dependencias:
 
 ```bash
 # npm
+
 npm install
 
-# pnpm
-pnpm install
+npm i
 
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
 ## Development Server
 
-Start the development server on `http://localhost:3000`:
+Cuando se instalen las dependecias el servidor se abrira en el puerto `http://localhost:3000` "Cuidado por que si hay otra instancia ya en el 3000 puede ser 3001":
 
 ```bash
 # npm
 npm run dev
 
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+El proyecto se encuentrá organizado de la siguente manera:
 
-Build the application for production:
+## Estructura del Proyecto
 
-```bash
-# npm
-npm run build
+```
+* Rick-and-Morty/
 
-# pnpm
-pnpm build
+>app>assets          # Recursos estáticos (imágenes, estilos)
 
-# yarn
-yarn build
+>app>components      # Componentes Vue reutilizables
 
-# bun
-bun run build
+>app>composables     # Funciones reutilizables (composables)
+
+>app>middleware      # Middleware para lógica de autenticación y validación
+
+>app>pages           # Páginas de la aplicación (enrutamiento automático)
+
+>app>stores          # Lógica de almacenamiento global con Pinia
+
+>public              # Archivos públicos estáticos
+
+>nuxt.config.ts      # Configuración de Nuxt
+
+>tailwind.config.ts  # Configuración de Tailwind
+
 ```
 
-Locally preview production build:
+## Variables de Entorno
 
-```bash
-# npm
-npm run preview
+No se requieren variables de entorno para ejecutar el proyecto en local.
 
-# pnpm
-pnpm preview
+## Arquitectura y Decisiones Relevantes
 
-# yarn
-yarn preview
+- Sobre la arquitectura no quise usar algo más específico como una arquitectura hexagonal, porque para un proyecto tan pequeño y donde no se especifica decidí usar lo más básico y funcional que es Nuxt 3 para un enrutamiento rápido y separar ficheros acorde a sus usos.
 
-# bun
-bun run preview
-```
+- Pinia como store global para auth y favoritos hechos en TypeScript.
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- Creación de componentes reutilizables mediante templates.
+
+- Composables para encapsular la lógica de funcional (fetch de personajes, validaciones) y reutilizarla en componentes.
+
+- Middleware de autenticación para proteger rutas privadas y proteger las rutas, si no hay token en las cookies cualquiera de las interfaces sin ella volverá al login.
+
+- Tailwind + SCSS, use esta combinación para agilizar el proyecto y usar componentes de páginas como UI Verse y desempeñar mayor tiempo en la lógica funcional.
