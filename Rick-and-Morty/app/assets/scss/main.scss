@@ -29,7 +29,6 @@ body {
 
 .line-tabs {
   color: $color-primary;
-  border-bottom: 2px solid $color-primary;
 
   &:hover {
     color: color.adjust($color-primary, $lightness: -10%);
@@ -41,6 +40,13 @@ body {
 
   &:hover {
     color: $color-primary;
+  }
+
+  &-logout {
+    color: #ffffff;
+    &:hover {
+      color: $color-error;
+    }
   }
 }
 
