@@ -13,17 +13,27 @@
       />
     </div>
 
+    <div v-else-if="!searchQuery" class="p-8">
+      <div
+        class="rounded-xl border border-dashed border-gray-300 bg-gray-50 p-8 text-center text-gray-600"
+      >
+        <p class="text-lg font-medium">Cargando...</p>
+        <p class="text-sm mt-2">
+          Por favor, espera mientras se cargan los personajes
+        </p>
+      </div>
+    </div>
+
     <div v-else class="p-8">
-      <div class="rounded-xl border border-dashed border-gray-300 bg-gray-50 p-8 text-center text-gray-600">
+      <div
+        class="rounded-xl border border-dashed border-gray-300 bg-gray-50 p-8 text-center text-gray-600"
+      >
         <p class="text-lg font-medium">No se encontraron personajes</p>
         <p class="text-sm mt-2">Intenta con otro nombre de búsqueda</p>
       </div>
     </div>
 
-    <div
-      v-if="info"
-      class="flex justify-center items-center gap-4 pb-8"
-    >
+    <div v-if="info" class="flex justify-center items-center gap-4 pb-8">
       <button
         @click="goToPage(currentPage - 1)"
         :disabled="!info.prev"
