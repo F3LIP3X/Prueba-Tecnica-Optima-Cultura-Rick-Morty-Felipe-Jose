@@ -31,7 +31,7 @@ body {
   color: $color-primary;
 
   &:hover {
-    color: color.adjust($color-primary, $lightness: -10%);
+    color: $color-primary-hover;
   }
 }
 
@@ -44,8 +44,15 @@ body {
 
   &-logout {
     color: #ffffff;
+    background-color: rgba(255, 64, 64, 0.385);
+
     &:hover {
       color: $color-error;
+    }
+
+    .close-sesion{
+      margin-left: 5px;
+      margin-right: 5px;
     }
   }
 }

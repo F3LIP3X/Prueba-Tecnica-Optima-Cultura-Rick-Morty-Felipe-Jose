@@ -73,15 +73,15 @@
               >Favoritos</NuxtLink
             >
           </li>
-            <li>
+          <li>
             <NuxtLink
               to="#"
               @click.prevent="useAuthStore().logout()"
               class="block py-2 px-3 rounded md:p-0 tabs-inactive tabs-inactive-logout"
             >
-              Cerrar sesión
+              <p class="close-sesion">Cerrar sesión</p>
             </NuxtLink>
-            </li>
+          </li>
         </ul>
       </div>
     </div>
@@ -93,6 +93,4 @@ import { useAuthStore } from "~/stores/auth";
 
 const route = useRoute();
 const isMenuOpen = ref(false);
-
-
 </script>

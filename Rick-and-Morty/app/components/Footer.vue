@@ -19,7 +19,7 @@
             </h2>
             <ul class="text-body font-medium">
               <li class="mb-4">
-                <a href="www.linkedin.com/in/felipe-toledano-escudero" class="hover:underline"
+                <a href="https://www.linkedin.com/in/felipe-toledano-escudero/" class="hover:underline"
                   >Linkedin</a
                 >
               </li>
