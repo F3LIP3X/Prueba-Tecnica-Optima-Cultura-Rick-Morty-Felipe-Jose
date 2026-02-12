@@ -1,15 +1,15 @@
-@use './colors.scss' as *;
-@use 'sass:color';
+@use "./colors.scss" as *;
+@use "sass:color";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
-
+//Login
 .button-login {
   background-color: $color-secondary;
 }
@@ -18,12 +18,13 @@ body {
   background-color: color.adjust($color-secondary, $lightness: -10%);
 }
 
+//Header
 .header-rm {
-  background-color: $color-terciary;
+  background-color: $color-header;
 }
 
 .color-tabs {
-  background-color: $color-terciary;
+  background-color: $color-header;
 }
 
 .line-tabs {
@@ -41,4 +42,14 @@ body {
   &:hover {
     color: $color-primary;
   }
+}
+
+//Search bar
+.search-btn {
+  background-color: $color-primary;
+}
+
+.search-btn:hover {
+  background-color: #a5c039;
+  transition: background-color 0.4s ease;
 }

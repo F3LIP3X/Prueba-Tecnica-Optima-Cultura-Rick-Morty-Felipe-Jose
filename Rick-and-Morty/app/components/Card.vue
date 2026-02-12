@@ -29,14 +29,19 @@
 
       <div class="mt-4 flex gap-2 justify-end">
         <button
-          class="rounded-lg border px-3 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-1 transition-colors"
+          class="rounded-lg border px-3 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-1 transition-colors flex items-center gap-2"
           :class="
-            isFavorite
-              ? 'border-red-200 bg-red-50 text-red-700 hover:bg-red-100 focus:ring-red-200'
-              : 'border-gray-200 bg-white text-gray-700 hover:bg-gray-50 focus:ring-gray-300'
+        isFavorite
+          ? 'border-red-200 bg-red-50 text-red-700 hover:bg-red-100 focus:ring-red-200'
+          : 'border-gray-200 bg-white text-gray-700 hover:bg-gray-50 focus:ring-gray-300'
           "
           @click="toggleFavorite"
         >
+          <img 
+        :src="isFavorite ? heartTwo : heartOne" 
+        alt="Heart Icon like or dislike" 
+        class="h-5 w-6" 
+          />
           {{ isFavorite ? "Quitar favorito" : "Agregar a favoritos" }}
         </button>
       </div>
@@ -47,6 +52,9 @@
 <script setup lang="ts">
 import type { Character } from "~/composables/useCharacters";
 import { useFavoritesStore } from "~/stores/favorites";
+import heartOne from '@/assets/images/heart_one.png'
+import heartTwo from '@/assets/images/heart_two.png'
+
 
 const favoritesStore = useFavoritesStore();
 
