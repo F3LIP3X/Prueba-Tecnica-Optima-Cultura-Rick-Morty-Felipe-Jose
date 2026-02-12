@@ -91,6 +91,7 @@ const handleSearch = (query: string) => {
 //Pagination
 const goToPage = (page: number) => {
   currentPage.value = page;
+  scrollTo(0, 0);
   loadCharacters();
 };
 
