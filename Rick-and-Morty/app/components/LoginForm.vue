@@ -24,6 +24,12 @@
             id="login"
             required
           />
+            <p
+            v-if="email.length > 0 && !isEmailValid(email)"
+            class="text-red-500 text-xs mb-4"
+            >
+            El correo electrónico no es válido.
+            </p>
 
           <label
             class="font-semibold text-sm text-gray-600 pb-1 block"
@@ -62,7 +68,7 @@
 </template>
 
 <script setup lang="ts">
-import { useLoginForm } from "~/composables/useLoginForm";
+import { useLoginForm, isEmailValid } from "~/composables/useLoginForm";
 
 const { email, password, isFormValid } = useLoginForm();
 const loadingRef = ref();
